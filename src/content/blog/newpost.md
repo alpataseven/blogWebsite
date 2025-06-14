@@ -1,17 +1,16 @@
 ---
-title: "Yaratıcılığın Sınırları"
+title: "Yaratıcılığın Sınırları Nelerdir"
 description: "Yaratıcılık nedir ve nasıl gelişir?"
 pubDate: 2025-06-14
-slug: "yaraticiligin-sinirlari"
+slug: "new-post"
 readTime: 3
-heroImage: "../../assets/blog-placeholder-3.jpg"
+heroImage: "../../assests/1.png"
 
 category: "Kültür"
 tags: ["yaratıcılık", "düşünce", "ilham"]
 author:
   name: "Alperen Ataseven"
   role: "Yazar"
-  avatar: "../../assets/blog-placeholder-3.jpg"
 ---
 
 # Yaratıcılığın Sınırları
