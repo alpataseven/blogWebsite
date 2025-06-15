@@ -20,6 +20,7 @@
     "daisyui": "^5.0.43",
     "dompurify": "^3.2.6",
     "framer-motion": "^12.18.1",
+    "gsap": "^3.13.0",
     "marked": "^15.0.12",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

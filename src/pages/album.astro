@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import ScrollTopButton from "../components/ScrollTopButton";
+import ScrollProgress from "../components/ScrollProgress.jsx";
 import { getCollection } from 'astro:content';
 
 const foto = await getCollection('photo');
@@ -17,12 +18,13 @@ const photos = foto.map(entry => entry.data.image);
 ---
 
 <!doctype html>
-<html data-theme="cupcake" lang="tr">
+<html data-theme="light" lang="tr">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <link rel="shortcut icon" href="logo2.png" type="image/x-icon">
   </head>
   <body class="font-sans bg-base-100 text-base-content">
+    <ScrollProgress client:load />
     <Header />
     <AlbumComponent client:load photos={photos} />
     <ScrollTopButton client:load />
