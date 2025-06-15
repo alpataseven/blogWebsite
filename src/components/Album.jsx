@@ -75,7 +75,7 @@ export default function Album({ photos }) {
     <>
       <main className="min-h-screen my-16">
         <h1 className="text-center text-4xl font-extrabold mb-10 tracking-tight">
-          Fotoğraf Galerisi
+          Fotoğraf Albümü
         </h1>
 
         {/* Görselleri ortalayarak göster */}
