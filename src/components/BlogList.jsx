@@ -22,14 +22,13 @@ const BlogList = ({ posts }) => {
   }, [posts, search, category, sortNewest]);
 
   const uniqueCategories = ["Tümü", ...new Set(posts.map(p => p.data.category).filter(Boolean))];
-
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const currentPosts = filteredPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       {/* Filtre Alanı */}
-      <div className="flex flex-wrap gap-4 items-center justify-between mb-6 p-4 rounded-xl shadow">
+      <div className="flex flex-wrap gap-4 items-center justify-between mb-6 p-4 rounded-xl shadow bg-base-100">
         <div className="flex flex-wrap gap-2">
           {uniqueCategories.map((cat, i) => (
             <button
@@ -38,7 +37,11 @@ const BlogList = ({ posts }) => {
                 setCategory(cat === "Tümü" ? "" : cat);
                 setCurrentPage(1);
               }}
-              className={`px-4 py-1 rounded-full ${category === cat || (cat === "Tümü" && category === "") ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-blue-100"}`}
+              className={`px-4 py-1 rounded-full cursor-pointer ${
+                category === cat || (cat === "Tümü" && category === "")
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-blue-100"
+              }`}
             >
               {cat}
             </button>
@@ -47,7 +50,7 @@ const BlogList = ({ posts }) => {
         <div className="flex gap-2 items-center">
           <input
             type="text"
-            placeholder="Makale ara..."
+            placeholder="Yazı ara..."
             className="input input-bordered"
             value={search}
             onChange={(e) => {
@@ -69,14 +72,15 @@ const BlogList = ({ posts }) => {
       {/* Blog Kartları */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {currentPosts.map((post, idx) => (
-          <div key={idx} className="rounded-xl overflow-hidden border shadow hover:shadow-lg transition">
-            <a href={`/blog/${post.slug}`}>
+          <div key={idx} className="rounded-xl overflow-hidden shadow hover:shadow-lg transition bg-base-300">
               {post.data.heroImage && (
+                <a href={`/blog/${post.id}`}>
                 <img
                   src={post.data.heroImage}
                   alt={post.data.title}
                   className="w-full h-60 object-cover"
                 />
+                </a>
               )}
               <div className="p-5">
                 {post.data.category && (
@@ -84,10 +88,8 @@ const BlogList = ({ posts }) => {
                     {post.data.category}
                   </span>
                 )}
-                <h2 className="text-lg font-bold mb-1">{post.data.title}</h2>
-                <p className="text-gray-600 text-sm mb-3">
-                  {post.data.description}
-                </p>
+                <a href={`/blog/${post.id}`}><h2 className="text-lg font-bold mb-1">{post.data.title}</h2></a>
+                <p className="text-gray-600 text-sm mb-3">{post.data.description}</p>
                 {post.data.tags && (
                   <div className="flex flex-wrap gap-2 mb-3">
                     {post.data.tags.map((tag, i) => (
@@ -117,10 +119,9 @@ const BlogList = ({ posts }) => {
                   {new Date(post.data.pubDate).toLocaleDateString("tr-TR")}
                 </div>
                 <div className="mt-4 text-right">
-                  <button className="btn btn-sm btn-primary">Oku</button>
+                  <a href={`/blog/${post.id}`} className="btn btn-sm btn-primary">Oku</a>
                 </div>
               </div>
-            </a>
           </div>
         ))}
       </div>
@@ -128,11 +129,13 @@ const BlogList = ({ posts }) => {
       {/* Sayfalama */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-8 gap-2">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`px-3 py-1 rounded border ${currentPage === page ? "bg-blue-600 text-white" : "bg-gray-100 hover:bg-blue-100"}`}
+              className={`px-3 py-1 rounded cursor-pointer ${
+                currentPage === page ? "bg-blue-600 text-white" : "bg-gray-100 hover:bg-blue-100"
+              }`}
             >
               {page}
             </button>

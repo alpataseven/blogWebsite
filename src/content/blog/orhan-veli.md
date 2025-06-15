@@ -4,14 +4,14 @@ description: "Bir Garip Orhan Veli"
 pubDate: 2025-06-11
 slug: "edb"
 readTime: 3
-heroImage: "../../public/1.png"
+heroImage: "/1.png"
 
 category: "Edebiyat"
 tags: ["edebiyat", "garip", "orhanveli"]
 author:
   name: "Alperen Ataseven"
   role: "Yazar"
-  avatar: '../../public/1.png'
+  avatar: "/3.png"
 ---
 
 # Yaratıcılığın Sınırları

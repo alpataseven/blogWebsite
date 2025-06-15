@@ -1,0 +1,36 @@
+---
+import AlbumComponent from '../components/Album.jsx';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import ScrollTopButton from "../components/ScrollTopButton";
+import { getCollection } from 'astro:content';
+
+const foto = await getCollection('photo');
+// Her bir md dosyasından sadece image alanını alıyoruz
+const photos = foto.map(entry => entry.data.image);
+/*const photos = [
+  "/1.png",
+  "/2.png"
+];*/
+---
+
+<!doctype html>
+<html data-theme="cupcake" lang="tr">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <link rel="shortcut icon" href="logo2.png" type="image/x-icon">
+  </head>
+  <body class="font-sans bg-base-100 text-base-content">
+    <Header />
+    <AlbumComponent client:load photos={photos} />
+    <ScrollTopButton client:load />
+    <Footer />
+  </body>
+</html>
+
+
+
+
+

@@ -4,13 +4,14 @@ description: "Yaratıcılık nedir ve nasıl gelişir?"
 pubDate: 2025-06-14
 slug: "post"
 readTime: 3
-heroImage: "../../public/1.png"
+heroImage: "/1.png"
 
 category: "Kültür"
 tags: ["yaratıcılık", "düşünce", "ilham"]
 author:
   name: "Alperen Ataseven"
   role: "Yazar"
+  avatar: "/3.png"
 ---
 
 # Yaratıcılığın Sınırları

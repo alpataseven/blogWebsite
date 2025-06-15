@@ -2,19 +2,65 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ScrollTop from '../components/ScrollTopButton.jsx';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
-<html lang="tr">
+<html data-theme="cupcake" lang="tr">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="shortcut icon" href="logo2.png" type="image/x-icon">
 	</head>
 	<body>
 		<Header />
 		<main>
 			
+    <!-- Parallax Backdrop -->
+    <section class="parallax-bg min-h-screen w-full flex items-center justify-center px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto bg-white/70 dark:bg-black/40 backdrop-blur-md p-10 rounded-3xl shadow-2xl animate__animated animate__fadeIn">
+        <!-- Sol Metin Alanı -->
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-gray-900 dark:text-white">
+            Sanatla İç İçe, İlham Verici Bir Blog
+          </h1>
+          <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8">
+            Kültür, sanat, edebiyat, müzik ve fotoğraf üzerine içerikler burada seni bekliyor.
+          </p>
+          <div class="flex flex-wrap justify-center md:justify-start gap-4">
+            <a
+              href="/blog"
+              class="btn btn-primary px-6 py-3 text-base rounded-full shadow-lg transition hover:scale-105"
+            >
+              Blog Yazılarını Keşfet
+            </a>
+            <a
+              href="/album"
+              class="btn btn-outline px-6 py-3 text-base rounded-full transition hover:scale-105"
+            >
+              Görsel Galeriyi Gör
+            </a>
+          </div>
+        </div>
+
+        <!-- Sağ Görsel Alanı -->
+        <div class="w-full max-w-md mx-auto animate__animated animate__zoomIn">
+          <img
+            src="logo2.png"
+            alt="Sanat temalı görsel"
+            class="rounded-2xl shadow-xl object-cover w-full"
+          />
+        </div>
+      </div>
+    </section>
 		</main>
+		<ScrollTop client:load />
 		<Footer />
 	</body>
 </html>
+
+
